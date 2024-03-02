@@ -20,18 +20,17 @@ fn is_two_prime(x: u128) -> bool {
 
 fn calc_two_prime(x: u128) -> Option<Vec<u128>> {
     let prime_factor = PrimeFactors::from(x);
-
+    
     if prime_factor.len() != 2 {
         return None;
     }
 
     Some(
-        prime_factor
-            .iter()
-            .map(|int_factor| int_factor.integer)
-            .collect(),
+        prime_factor.iter().map(|int_factor| int_factor.integer).collect()
     )
+
 }
+
 
 fn is_three_prime(x: u128) -> bool {
     let prime_factor = PrimeFactors::from(x);
@@ -52,14 +51,11 @@ fn calc_three_prime(x: u128) -> Option<Vec<u128>> {
     if prime_factor.len() != 3 {
         return None;
     }
-
     Some(
-        prime_factor
-            .iter()
-            .map(|int_factor| int_factor.integer)
-            .collect(),
+        prime_factor.iter().map(|int_factor| int_factor.integer).collect()
     )
 }
+
 
 fn revert_number(x: u128) -> u128 {
     let mut number = x;
@@ -86,28 +82,18 @@ where
     t_number
 }
 
+
 fn print_t_number(t_number: Vec<u128>) {
     for number in t_number {
-        let pq = calc_two_prime(number).unwrap();
-        let rst = calc_three_prime(revert_number(number)).unwrap();
 
-        println!(
-            "{}: ({}, {}), {}: ({}, {}, {})",
-            number,
-            pq[0],
-            pq[1],
-            revert_number(number),
-            rst[0],
-            rst[1],
-            rst[2]
-        );
+        let 
     }
 }
 
 fn main() {
     let t_number = find_t_number(1000..10000);
 
-    print_t_number(t_number);
+    println!("T-Number: {:?}", t_number);
 }
 
 #[cfg(test)]
