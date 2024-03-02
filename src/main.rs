@@ -84,7 +84,7 @@ where
 }
 
 fn main() {
-    let t_number = find_t_number(1000..10000);
+    let t_number = find_t_number(1..1000000);
 }
 
 #[cfg(test)]
